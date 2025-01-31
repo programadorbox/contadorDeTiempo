@@ -4,20 +4,20 @@ var hh = 0;
 var mm = 0;
 var ss = 0;
 
-var tempo = 1000;//Quantos milésimos valem 1 segundo?
+var tempo = 1000;//¿Cuántos milisegundos valen 1 segundo?
 var cron;
 
-//Inicia o temporizador
+//Inicia el temporizador
 function start() {
     cron = setInterval(() => { timer(); }, tempo);
 }
 
-//Para o temporizador mas não limpa as variáveis
+//Para el temporizador pero no limpia las variables
 function pause() {
     clearInterval(cron);
 }
 
-//Para o temporizador e limpa as variáveis
+//Para el temporizador y limpia las variables
 function stop() {
     clearInterval(cron);
     hh = 0;
@@ -27,26 +27,26 @@ function stop() {
     document.getElementById('counter').innerText = '00:00:00';
 }
 
-//Faz a contagem do tempo e exibição
+//Hace la cuenta del tiempo y la visualización
 function timer() {
-    ss++; //Incrementa +1 na variável ss
+    ss++; //Incrementa +1 en la variable ss
 
-    if (ss == 60) { //Verifica se deu 59 segundos
-        ss = 0; //Volta os segundos para 0
-        mm++; //Adiciona +1 na variável mm
+    if (ss == 60) { //Verifica si ha llegado a 59 segundos
+        ss = 0; //Regresa los segundos a 0
+        mm++; //Añade +1 en la variable mm
 
-        if (mm == 60) { //Verifica se deu 59 minutos
-            mm = 0;//Volta os minutos para 0
-            hh++;//Adiciona +1 na variável hora
+        if (mm == 60) { //Verifica si ha llegado a 59 minutos
+            mm = 0;//Regresa los minutos a 0
+            hh++;//Añade +1 en la variable hora
         }
     }
 
-    //Cria uma variável com o valor tratado HH:MM:SS
+    //Crea una variable con el valor tratado HH:MM:SS
     var format = (hh < 10 ? '0' + hh : hh) + ':' + (mm < 10 ? '0' + mm : mm) + ':' + (ss < 10 ? '0' + ss : ss);
     
-    //Insere o valor tratado no elemento counter
+    //Inserta el valor tratado en el elemento counter
     document.getElementById('counter').innerText = format;
 
-    //Retorna o valor tratado
+    //Devuelve el valor tratado
     return format;
 }
